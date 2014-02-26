@@ -1,125 +1,33 @@
-\chapter{Tutorial}
+\chapter{Einführung}
 
-\section{Images}
+Productlifecyclemanagment, oder kurz PLM, ist der Versuch alle Daten, die im Lebenszyklus eines Produktes anfallen, zu verwalten. Dabei überlappen manche Funktionalitäten mit denen eines Versionskontrollsystems (VCS), welches in der reinen Softwareentwicklung verwendet wird.
 
-In der Abbildung \imgref{gull} können Sie eine Möwe sehen.
+PLM kann in die drei folgenden Bereiche eingeteilt werden:
 
-\img{0.5}{document/graphics/gull.jpg}{Quelle: http://de.wikipedia.org/wiki/Möwen}{gull}
+\begin{itemize}
+    \item Product Development
+    \item Product Manufacturing
+    \item Product Ownership
+\end{itemize}
 
-In der Abbildung \imgref{biene} können Sie eine Biene sehen:
+Product Development und Product Manufacturing beschäftigen sich mit der Produktnummer bzw. um das einzelne Produkt, wohingegen Product Ownership eine ganze Produktserie behandelt.
 
-\imgsrc{0.3}{document/graphics/biene.png}{Ich bin eine Bieene.}{biene}{frag google!}
+Produkte werden auch noch in Produktfamilien und Produktvarianten eingeteilt. Eine Produktfamilie fasst ähnliche Produktvarianten zusammen, welche sich nur in einzelnen Attributen voneinander unterscheiden.
 
-\begin{code}[tex]{Inline code}{Inline code}
-You can see a Gull in Abbildung \imgref{gull1}.
+Produkte sind anhand ihrer Produktdefinitionsdaten nachbaubar, würde in Software also dem Quellcode entsprechen. Im Gegensatz dazu existieren noch die Produktspezifikationsdaten, welche nur das Verhalten des Produktes beschreiben, und somit den Schnittstellendefinitionen einer Software entspricht. Bei der Entwicklung dieser Daten sollten auch die bereits existierenden Normen anderer Firmen oder Organisationen beachtet werden.
 
-\img{0.5}{document/graphics/gull.jpg}{Quelle: http://de.wikipedia.org/wiki/Moewen}{gull1}
+\section{Lebenszyklus}
 
-And a bee in Abbildung \imgref{biene1}:
+Der Lebenszyklus eines Produktes hängt ganz wesentlich von der Industrie ab. Die Industrien werden in verschiedene Typen eingeteilt.
 
-\imgsrc{0.3}{document/graphics/biene.png}{Ich bin eine Bieene.}{biene1}{frag google!}
-\end{code}
+\paragraph{Process Production}
+Hier läuft ein Prozess durchgehen ab, wie zum Beispiel beim Verarbeiten von Rohöl in einer Pipeline.
 
-\section{Listings}
+\paragraph{Batch Production}
+Bei diesem Typ werden sehr große Mengen, wie zum Beispiel ganze Paletten, von einem Produkt produziert.
 
-In Listing \coderef{example} können Sie ein Beispiel Code sehen.
+\paragraph{Embedded Systems}
+Hier ist die Verwendung einer reinen Versionskontroll etwas schwierig, da die Software Teil eines physikalischen Produktes ist. Wenn man diese Produktdaten zusammen verwalten will, muss man ein PLM-System einsetzen.
 
-\codefile[6][12][perl]{document/scripts/example.pl}{example caption}{example}
-
-\begin{code}[tex]{Include a code file}{codefile}
-In Listing \coderef{examplelabel} you can see a perl code sample (line 6 to 12).
-\codefile[6][12][perl]{document/scripts/example.pl}{example caption}{example}
-\end{code}
-
-\begin{code}[c]{caption}{label}
-#include <msp430.h> 
-
-void main(void) {
-	WDTCTL = WDTPW + WDTHOLD; // Stop watchdog timer
-
-	P1DIR |= BIT0; // Set P1.0 to output direction
-	P1OUT &= ~BIT0; // Set the red LED on
-
-	TA0CCR0 = 12000; // Count limit (16 bit)
-	TA0CCTL0 = 0x10;	 // Enable counter interrupts, bit 4=1
-	TA0CTL = TASSEL_1 + MC_1; // Timer A 0 with ACLK @ 12KHz, count UP
-
-	_BIS_SR(LPM0_bits + GIE); // LPM0 (low power mode) with interrupts enabled
-}
-
-#pragma vector=TIMER0_A0_VECTOR
-   __interrupt void Timer0_A0 (void) { // Timer0 A0 interrupt service routine
-	P1OUT ^= BIT0; // Toggle red LED
-}
-\end{code}
-
-
-\begin{code}[tex]{Inline code}{Inline code}
-In Listing \coderef{inline} you can see a c code sample.
-
-\begin{code}[c]{example caption}{inline}
-#include <msp430.h> 
-
-void main(void) {
-...
-}
-\ end{code}
-\end{code}
-
-\section{Bibtex}
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. \cite{bibtex.a}
-
-Der Literaturgenerator macht es möglich, schnell und einfach BibTeX-Einträge zu erstellen.
-Es reicht den Titel des Buches in das Suchfeld einzutragen.\\
-\url{http://www.literatur-generator.de/}
-
-Die meisten Bibliothekskataloge können mittlerweile BibTeX exportieren (ggf. nach \url{http://de.wikipedia.org/wiki/Citavi}). Hiermit können komplette Datensätze in die BibTeX-Datenbank übernommen werden.\\
-Mit dem Webtool Lead2Amazon ist es möglich, BibTeX-Einträge für Bücher, die bei Amazon erhältlich sind, automatisch zu generieren.\\
-In das Suchfeld muss dabei lediglich die ISBN eingetragen werden.\\
-\url{http://lead.to/amazon/en/?op=bt}
-
-Mit dem Literaturverwaltungsprogramm zotero lassen sich auch bibtex-Dateien exportieren.\\
-\url{http://www.zotero.org}
-
-\section{Algorithm}
-
-This Algoorithm \algoref{algo1} is great to learn.
-
-\begin{algo}{How to write algorithms}{algo1}
- \KwData{this text}
- \KwResult{how to write algorithm with \LaTeX2e }
- initialization\;
- \While{not at end of this document}{
-  read current\;
-  \eIf{understand}{
-   go to next section\;
-   current section becomes this one\;
-   }{
-   go back to the beginning of current section\;
-  }
- }
-\end{algo}
-
-\begin{code}[Tex]{Algorithm code}{algorithm}
-This Algoorithm \algoref{algo1} is great to learn.
-
-\begin{algo}{How to write algorithms}{algo1}
- \KwData{this text}
- \KwResult{how to write algorithm with \LaTeX2e }
- initialization\;
- \While{not at end of this document}{
-  read current\;
-  \eIf{understand}{
-   go to next section\;
-   current section becomes this one\;
-   }{
-   go back to the beginning of current section\;
-  }
- }
-\end{algo}
-\end{code}
-
-\Blinddocument
-
-\Blinddocument
+\paragraph{Construction}
+Das Bauwesen stellt einen Sonderfall dar, da das Produkt, typischerweise ein Gebäude, vor Ort erstellt werden muss.

@@ -31,3 +31,57 @@ Hier ist die Verwendung einer reinen Versionskontroll etwas schwierig, da die So
 
 \paragraph{Construction}
 Das Bauwesen stellt einen Sonderfall dar, da das Produkt, typischerweise ein Gebäude, vor Ort erstellt werden muss.
+
+\chapter{Spezifizierungstechniken}
+
+\section{Objektorientierte Grundlagen}
+Alles ( z.B. ein Fenster, eine Person) kann ein Objekt sein. Alle Objekte verfügen zudem über verschiedene Charakteristiken (z.B. Gewicht, Größe) und Verhalten (z.B. offen, geschlossen). Objekte die die selben Arten von Charakteristiken, Verhalten und Constraints haben, können in Klassen zusammengefasst werden.
+
+\subsection{Klassen}
+Klassen kann man sich im Informatikbereich als eine Art Bauplan für Objekte vorstellen. Im Prinzip sind Klassen selbst auch wieder Objekte und können reale Dinge oder computer-interne Representationen sein. Ein Objekt kann zu mehr als einer Klasse gehören (Mehrfachvererbung).
+
+\paragraph{Spezialisierung und Generalisierung}
+Die Beziehung zwischen Klassen kann so gesehen werden, dass jedes Objekt einer spezielleren Klasse auch  ein Objekt einer genereleren Klasse ist.
+
+\begin{itemize}
+	\item Multiple Klassifizierung
+	\item Überlappende Klassifizierung
+	\item Dynamische Klassifizierung
+\end{itemize}
+
+\section{UML Klassendiagramm}
+UML ermöglicht verschiedene Sichtweisen auf ein und dasselbe Model. Je nach Programmiersprache gibt es angepasste Varianten von UML die nur das als UML zulassen was sich auch in der jeweiligen Programmiersprache wirklich umsetzen lässt.
+
+\subsection{Klassen}
+Eine Klasse ist in UML eine Repräsentation von einer Gruppe von Dingen mit denselben Charakteristiken und Verhalten. Operationen von Klassen sind die Definition eines Verhaltes einer Klasse.
+
+\begin{itemize}
+	\item Die UML-Spezifikation sagt nichts darüber aus, welche Art von Klassifizierung verwendet werden darf / kann.
+	\item UML sagt auch nichts darüber aus welche Art der Konfliktlösung bei Mehrfachverwendung von selben Operationsnamen oder Attributnamen verwendet wird (z.B. bei Diamantenproblem). Darum ist die Forderung nach einer expliziten Neudefinierung eines Attributs / einer Operation möglich.
+\end{itemize}
+
+\subsection{Assoziation}
+Eine Assoziation ist eine Verbindung zwischen 2 oder mehreren Objekten und wird als Linie zwischen den dazugehörigen Klassen dargestellt. Verbindungen können auch auf die selbe Klasse verweisen um mehrere Instanzen einer Klasse miteinander zu verbinden. Assoziationen sind an sich auch wieder Klassen und bieten somit die Möglichkeit bei den Verbindungen selbst weitere Attribute / Operationen zu definieren.
+
+\paragraph{Nie mehr als 2 Klassen miteinander Verbinden} da es zu Probleme mit den Kardinalitäten bzw. deren logischer Auflösung führen kann.
+
+\paragraph{Navigation}
+In welche Richtung eine Assoziation führt wird mit Pfeilen ausgedrückt - ohne Pfeile bedeutet es, dass die Assoziation in beide Richtungen führt.
+
+\paragraph{Aggregation}
+Eine Verbindung die Darstellt welche Klasse ein Teil / im Besitz einer anderen Klasse ist(leere Raute).
+
+\paragraph{Composition}
+Eine Komposition ist auch eine Verbindungsvariante zwischen Objekten, wobei ein Objekt nur so lange exisitieren kann, solange es von einem anderen Objekt besessen wird. Außerdem kann das Objekt nicht von mehr als einem anderen Objekt besessen werden (ausgefüllte Raute).
+
+\paragraph{Dependency}
+Dient der Dokumentierung irgend einer Verbindung ohne weitere Aussage darüber, welcher Art diese Verbindung ist (strichlierte Linie).
+
+\section{Weitere Diagramm-Arten}
+Neben herkömmlichem UML gibts es auch weitere Diagrammarten: 
+
+\paragraph{SysML Anforderungsdiagram}
+Diese Diagramme gibt es in graphischer und tabellarischer Form sowie als Metamodel.
+
+\paragraph{UML Objekt Diagramm}
+

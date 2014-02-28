@@ -84,4 +84,147 @@ Neben herkömmlichem UML gibts es auch weitere Diagrammarten:
 Diese Diagramme gibt es in graphischer und tabellarischer Form sowie als Metamodel.
 
 \paragraph{UML Objekt Diagramm}
+\todo{Beschreibung UML-Object-Diagram}
+
+\section{UML Communication Diagramm}
+\todo{Into Communications diagram}
+
+\subsection{Lifeline}
+Eine Lifeline ist in UML eine Art instance eines Objektes, allerdings enthält es keinen Status der Instance. Also besser gesagt ist es ein Platzhalter für ein konkretes Objekt.
+
+\subsection{Konkreter Nachrichten Fluss}
+Informationen in diesem Diagramtyp:
+
+\begin{itemize}
+\item Abfolge der Nachrichten
+\item Richtung der Nachrichten
+\item Typen der Nachricht (synchron, asynchron)
+\end{itemize}
+
+Eine andere Darstellungsform für dieses Diagramm ist das Sequenz Diagramm. Es enthält die selben Informationen, stellt diese aber anders dar.
+
+\subsection{Abstrakter Nachrichten Fluss}
+Informationen in diesem Diagramtyp:
+
+\begin{itemize}
+\item Nicht technische Darstellung
+\item Richtung der Nachrichten
+\item Typen der kommunizierten Nachrichten
+\end{itemize}
+
+\paragraph{Beispiel} Crawler für eine Suchmaschiene
+
+\subsubsection{Beispiel aus den Folien}
+
+\img{1}{document/graphics/abstract_information_flow.png}{Abstrakter Informations Fluss}{aif}
+
+\paragraph{Notizen:}
+
+\begin{itemize}
+\item Marketing schickt anforderungen an ein Produkt an Product Development (PD)
+\item
+{
+PD entwickelt das Produkt => Ergebniss Product Definition
+\begin{itemize}
+\item Materials = Material um das Auto zu bauen (Stückliste)
+\item Equipment = Zubehör (Ablauf, Werkzeuge, Prozesse ...) um das Auto zu bauen
+\end{itemize}
+}
+\item Product Definition geht an Manfacturing
+\item PD -> MaterialSpecification wird an Products Logistics geleitet wen das Teil eingekauft wird
+\item Manufacturing bestellt über MaterialsRequest
+\item Manufactoring verbaut den Motor (input item)
+\item Fals gewisse Teile doch selber (oder andere Firma) Produziert werden ManufactoringOrder
+\item FacillityLogistics bekommt ManufactoringOrder und liefert eine Resource item (unterstützt den Prozess)
+\item PD liefert ProductDefinition an Marketing für neues Produkt
+\item Marketing liefert ProductSpecification an Sales um Order zu erstellen
+\item Sales liefert Order an DistributionLogistics (DL)
+\item DL liefert (input) an Manufactoring
+\item
+{
+Stereotypen:
+\begin{itemize}
+\item Input wird verbracht (nach der verarbeitung nicht mehr da)
+\item Output 
+\item Resource ... Hilfsmittel um die Aufgabe zu erledigen
+\item Control ... Steuert den Ablauf im Block
+\end{itemize}
+}
+\end{itemize}
+
+\paragraph{Beispiel: Kompilierung}
+
+\begin{itemize}
+\item Input ist der Source code (weg für den Kompiler)
+\item Resource ist der Kompiler, BS
+\item Control ist z.B. Compiler direktiven
+\end{itemize}
+
+\subsection{UML Aktivitäts Diagramm}
+Beschreibt das Verhalten (Fluss), nicht die statischen Strukturen.
+
+\paragraph{Anwendungen}
+
+\begin{itemize}
+\item Geschäftsprozesse
+\item Systemprozesse
+\item ...
+\end{itemize}
+
+\subsubsection{Petri Netze}
+Mathematische Modelierung von Verteilten Systemen. Entwickelt 1962 con Carl Adam Petri. Grundlagen für Petri Netze sind gerichteten (bipartiten) Graphen:
+\begin{itemize}
+\item
+{
+Nodes (Knoten):
+\begin{itemize}
+\item Places: ???
+\item Transition: ???\todo{Petri Netze Grundlagen}
+\end{itemize}
+}
+\end{itemize}
+
+\todo{Activity Diagram bild}
+
+Transition kann dann was tun wen am eingang genügend Token vorhanden (an jedem Eingang) sind. Damit wird ein (oder Gewicht) Token an die nächsten (am Augang).
+\todo{bessere beschreibung activity diagram}
+
+\paragraph{Activity}
+Entspricht einem Verhalten im System und besteht aus mehereren Actions.
+
+\paragraph{Action}
+Eine Aktion ist ein einzelner Schritt in einer Activity. Muss aber nicht Atomar sein (kann also aus weiteren Activities und Actions bestehen)
+
+\paragraph{Start und Endknoten}
+Start enthält genug Token für die Eingaben, Feuert am start der Aktivität. Wen ein Token den Ende Knoten erreicht ist die Activity zu ende.
+
+\paragraph{Kanten}
+Die Kanten des Diagramm besitzt einen Namen und weitere Inforamtionen wie den Fluss (Richtung, Bedinungen, weiteres Verhalten). Zusätzlich spezifiert wird die Kante über Stereotypes.
+
+Weitere Informationen zu Kanten:
+\begin{itemize}
+\item Gewicht \{Geschwungenen Klammern\}
+\item Guard (Filter oder Evaluationen) [Eckige Klammern]
+\item Zuerst Guard dann Gewicht überprüfen
+\end{itemize}
+
+\paragraph{Ein und Ausgänge (In/Output Pins)}
+Entspricht Parameter in der Softwareentwicklung. Damit kann bestimmt werden welche Eingaben welche Rollen spielen. Damit können verschiedenen Eingabeparameter verschiedene Verhalten zugewiesen werden.
+
+\paragraph{Objekt Knoten}
+Repräsentiert Objekte die in Aktionen verwendet werden.
+
+\paragraph{Parameter Knoten}
+Erweiterte Version von Ein und Ausgängen
+
+\paragraph{Entscheidungsknoten}
+Nur ein Ausgang wird gefeuert. Bedinung für jeden Ausgang an der jeweiligen Kante.
+
+\paragraph{Merge}
+Es reicht wenn ein Eingang gefeuert wurde, damit der Ausgang gefeuert wird.
+
+\paragraph{Fork / Join}
+Erzeugt / Synchronisiert Parallele Flüsse. 
+
+\todo{evtl. Bild zu Typen von hier: http://www.visual-paradigm.com/VPGallery/diagrams/Activity.html}
 

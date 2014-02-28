@@ -84,10 +84,10 @@ Neben herkömmlichem UML gibts es auch weitere Diagrammarten:
 Diese Diagramme gibt es in graphischer und tabellarischer Form sowie als Metamodel.
 
 \paragraph{UML Objekt Diagramm}
-\todo{Beschreibung UML-Object-Diagram}
+Das Objektdiagramm ist ein Strukturdiagramm und umfasst ausprägungen von Klassen und Assiciationen.
 
 \section{UML Communication Diagramm}
-\todo{Into Communications diagram}
+Das Kommunikationsdiagramm ist ein Verhaltensdiagramm. Es zeigt eine bestimmte Sicht auf die dynamischen Aspekte des modellierten Systems und stellt Interaktionen grafisch dar, wobei der Austausch von Nachrichten zwischen Ausprägungen mittels Lebenslinien dargestellt wird.
 
 \subsection{Lifeline}
 Eine Lifeline ist in UML eine Art instance eines Objektes, allerdings enthält es keinen Status der Instance. Also besser gesagt ist es ein Platzhalter für ein konkretes Objekt.
@@ -178,25 +178,40 @@ Mathematische Modelierung von Verteilten Systemen. Entwickelt 1962 con Carl Adam
 {
 Nodes (Knoten):
 \begin{itemize}
-\item Places: ???
-\item Transition: ???\todo{Petri Netze Grundlagen}
+\item Places: tragen Tokens in sich
+\item
+{
+Transition: Forked oder Joined Kanten
+\begin{itemize}
+\item Input Place: Verbunden über Kante am Eingang
+\item Output Place: Verbunden über Kante am Ausgang
+\end{itemize}
+}
+\item Die Transition feuert, wenn jeder Input Place mindestens soviel Tokens wie das Gewicht der Kante besitzt.
+\item Die Output Places erhalten nach feuern der Transition soviele Tokens, wie das Gewicht der verbindenden Kante
 \end{itemize}
 }
 \end{itemize}
 
-\todo{Activity Diagram bild}
+\img{0.8}{document/graphics/ActivityDiagram.png}{Activity Diagram}{ad}
 
-Transition kann dann was tun wen am eingang genügend Token vorhanden (an jedem Eingang) sind. Damit wird ein (oder Gewicht) Token an die nächsten (am Augang).
-\todo{bessere beschreibung activity diagram}
+\newpage
 
 \paragraph{Activity}
 Entspricht einem Verhalten im System und besteht aus mehereren Actions.
 
+\img{0.3}{document/graphics/Activity.png}{Activity}{activity}
+
 \paragraph{Action}
 Eine Aktion ist ein einzelner Schritt in einer Activity. Muss aber nicht Atomar sein (kann also aus weiteren Activities und Actions bestehen)
 
+\img{0.3}{document/graphics/Action.png}{Action}{action}
+
 \paragraph{Start und Endknoten}
 Start enthält genug Token für die Eingaben, Feuert am start der Aktivität. Wen ein Token den Ende Knoten erreicht ist die Activity zu ende.
+
+\img{0.3}{document/graphics/ActivityFinalNode.png}{ActivityFinalNode}{final}
+\img{0.3}{document/graphics/InitialNode.png}{InitialNode}{init}
 
 \paragraph{Kanten}
 Die Kanten des Diagramm besitzt einen Namen und weitere Inforamtionen wie den Fluss (Richtung, Bedinungen, weiteres Verhalten). Zusätzlich spezifiert wird die Kante über Stereotypes.
@@ -208,23 +223,37 @@ Weitere Informationen zu Kanten:
 \item Zuerst Guard dann Gewicht überprüfen
 \end{itemize}
 
+\img{0.3}{document/graphics/ControlFlow.png}{Knoten}{flow}
+
 \paragraph{Ein und Ausgänge (In/Output Pins)}
 Entspricht Parameter in der Softwareentwicklung. Damit kann bestimmt werden welche Eingaben welche Rollen spielen. Damit können verschiedenen Eingabeparameter verschiedene Verhalten zugewiesen werden.
+
+\img{0.3}{document/graphics/InputPin.png}{InputPin}{input}
+\img{0.3}{document/graphics/OutputPin.png}{OutputPin}{output}
 
 \paragraph{Objekt Knoten}
 Repräsentiert Objekte die in Aktionen verwendet werden.
 
+\img{0.3}{document/graphics/ObjectNode.png}{ObjectNode}{object}
+
 \paragraph{Parameter Knoten}
 Erweiterte Version von Ein und Ausgängen
+
+\img{0.3}{document/graphics/ActivityParameterNode.png}{ParameterNode}{parameternode}
 
 \paragraph{Entscheidungsknoten}
 Nur ein Ausgang wird gefeuert. Bedinung für jeden Ausgang an der jeweiligen Kante.
 
+\img{0.3}{document/graphics/DecisionNode.png}{DecisionNode}{decision}
+
 \paragraph{Merge}
 Es reicht wenn ein Eingang gefeuert wurde, damit der Ausgang gefeuert wird.
+
+\img{0.3}{document/graphics/MergeNode.png}{MergeNode}{merge}
 
 \paragraph{Fork / Join}
 Erzeugt / Synchronisiert Parallele Flüsse. 
 
-\todo{evtl. Bild zu Typen von hier: http://www.visual-paradigm.com/VPGallery/diagrams/Activity.html}
+\img{0.3}{document/graphics/ForkNode.png}{Fork / Join Node}{fork_join}
+
 

@@ -256,4 +256,36 @@ Erzeugt / Synchronisiert Parallele Flüsse.
 
 \img{0.3}{document/graphics/ForkNode.png}{Fork / Join Node}{fork_join}
 
+\subsubsection{Advanced Activity Modelling}
+Einführung von Activity Partitions, also mehrere Swimlanes. Swimlanes können später noch weiter unterteilt werden (FHV kann im Laufe des Prozesses z.B. noch in einzelne Räume unterteilt werden). 
 
+Der external Stereotype beschreibt einen Bereich, der nicht von uns konstruiert wird, sondern von außen vorgegeben ist.
+
+Wenn auf eine große Menge von Daten die gleiche Aktion angewendet werden soll, dann können sogenannte Expansion Regions verwendet werden. Dazu gibt es optionale Stereotypen für die Verarbeitung in einem iterativen, parallelem oder einem Streaming-Prozess. Die Verwendung dieser Stereotypen ist zum Teil allerdings an gewisse Hardware gebunden.
+
+Darüberhinaus gibt es auch noch für die Darstellung von Loops die Standard Loops und Loop Nodes. Bei den Loop Nodes werden drei Bereiche angegeben: Setup, Test und einen ausführenden Body.
+
+Streaming Actions können Output generieren, während dem man einen Input erhaltet.
+
+Central Buffer stellen Puffer als Knoten dar, was z.B. bei einer Produktionskette ganz nützlich sein kann. Eine Erweiterung dazu stellt der Data Store Node dar, auf welchen auch noch Daten gespeichert werden. Diese Daten können auch später noch einmal abgerufen werden.
+
+\subsubsection{Statecharts}
+In vielen Fällen hängt das Verhalten eines Objekts von seinem Zustand ab, und die Zusammenhänge zwischen diesen Zuständen werden in einem Statechart mit Zustandsübergangen gezeigt. Wenn ein Übergang zwischen zwei States nicht definiert ist, könnte man das als nicht erlaubter Übergang interpretieren.
+
+\paragraph{Status}
+Ein Status haltet immer eine invariante Bedingung, die sich nicht ändert, solange man den Status nicht wechselt. Diese Bedingung ist im Normalfall implizit definiert.
+
+Es gibt verschiedene Verhalten bei einem Status. Am Anfang gibt es ein Eintrittsverhalten, welches ausgeführt wird, sobald man den Zustand betritt. Während dem Verharren in einem Zustand gibt es ein Verhalten, welches gültig ist, solange der Status aktiv ist. Zuletzt gibt es noch ein Austrittsverhalten, welches beim Verlassen des Status ausgeführt wird.
+
+Status können auch verschachtelt, und in dieser Verschachtelung auch noch in Swimlanes angeordnet werden. Man kann auch Submaschinenstatus verwenden, um die mehrfache Verwendung des gleichen Status in verschiedenen Diagrammen zu verwenden.
+
+\paragraph{Zustandsübergang}
+An einem Zustandsübergang hängt ein Trigger, welcher beschreibt bei welchem Event der Übergang eintritt. Dazu gibt es auch noch einen Guard, also ein boolscher Ausdruck, welcher wahr sein muss um den Übergang zu erlauben. Zuletzt gibt es einen Effekt, der beim Zustandsübergang ausgeführt wird.
+
+\paragraph{Pseudostatus}
+Es gibt auch sogenannte Pseudostatus, allen voran der Startzustand. Allerdings ist der Endzustand kein Pseudozustand, da an diesem wirklich etwas ankommt.
+
+Darüber hinaus gibt es auch noch einige andere Pseudostatus, wie z.B. der Entscheidungsknoten, das Forken und Joinen, das Zusammenführen usw.
+
+\paragraph{Signal}
+Dieser Teil ist vor allem für Embedded Software wichtig, damit kann man das Empfangen und Versenden von Signalen modellieren.

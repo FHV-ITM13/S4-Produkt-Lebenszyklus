@@ -320,7 +320,6 @@ Wichtig im Bereich des Produktlebenszyklusmanagement sind die Bereiche Herstellu
 
 Der Produktmanager ist das Bindeglied zwischen Produktion, Marketing, Vertrieb usw. und muss vermitteln. Außerdem sollte er deb vielen verschiedenen Breichen (Technik, Wirtschaftlich, Marketing) ein wenig Ahnung und auch Verständniss dafür haben.
 
-
 \img{0.8}{document/graphics/product_management_responsibilities.PNG}{Produktmanagerverantwortungen}{produktmanagerverantwortungen}
 
 Neben dem Wissen über die ganzen Teilgebieten (Produktion, Marketing, Verkauf) sollte ein guter Produktmanager auch wissen wieso Kunden ein Produkt kaufen oder auch nicht. (Beispiel v. Prof.)
@@ -330,4 +329,109 @@ Hier wird festgestellt ob Anforderungen gültig sowie konsisten untereinander (k
 
 \img{1}{document/graphics/requirement_management_processes.PNG}{Anforderungsmanagement-Prozess}{requirement_management_processes}
 
+\section{Item und Item-Context}
+
+\paragraph{Item Spezifikation}
+Resultat einer technischen Entwicklung, unabhängig von dessen Gebrauch als Teil eines größeren Produktes und Zubehör für die Produktion.
+
+\paragraph{Item Kontext}
+Wichtige Informationen um die Spezifikation richtig zu interpretieren.
+\begin{itemize}
+\item Detailierte Anforderungen
+\item Verbindungen zu anderen Teilen
+\item Klassifizierung
+\item Zweck und Status des Items
+\item Phase im Lebenszyklus
+\end{itemize}
+
+\img{1}{document/graphics/item_itemcontext.png}{Item and Item Context}{item_itemcontext}
+
+\section{Item Entwicklungs Prozess}
+
+Der Prozess wird für jede Stufe durchgeführt, daher wird der Prozess rekursive ausgeführt.
+
+\imgangle{0.5}{90}{document/graphics/itemdev.png}{Item Development Process}{itemdev}
+
+\section{Item Struktur}
+Entspricht einer einfachen Stückliste für das Item. Es ist ausreichend für die Fertigungslogistik aber nicht für die Unterstützung mit einem Informationsmanagement System.
+
+\begin{itemize}
+\item Idee eines Artikels
+\item UseCases sammeln
+\item Liste von Funktionen 
+\item Funktionen auf abstrakte Komponenten zuweisen
+\item Suche nach bestehenden Komponenten
+\item Fals keines gefunden werden kann starte einen neuen Design Prozess
+\item Die UseCases auf dieser Ebene auf die abstrakte Komponente zugeordnet 
+\end{itemize}
+
+\newpage
+\paragraph{Ideale Struktur}
+Die M-N Beziehungen kommen daher, dass eine Funktion von meheren Komponenten und dass mehrere Komponenten eine Funktion erfüllen können.
+
+\img{1}{document/graphics/itemstructure3.png}{Ideale Item Struktur}{itemstructure3}
+
+\newpage
+\paragraph{Reale Struktur}
+Über die Beziehungsklasse (ItemStructureRelationship) kann ein Typ definiert werden. Zusätzlich kann über das Flag physicalContainment definiert werden, ob die Beziehung eine Komposition oder Aggregation ist.
+
+\img{1}{document/graphics/itemstructure4.png}{Reale Item Struktur}{itemstructure4}
+
+In einem gewissen Detailierungsgrad macht die Unstruktured Definitionen keinen Sinn mehr. Beispiel Heizkörper, jeder Heizkörper bekommt nun ein Instance Objekt. Dort findet sich wieder eine Stückliste mit dem Bestandteilen dieses einzelnen Items.
+
+\newpage
+\section{Item Änderungen}
+Im Allgemeinen eine Sourcecode Verwaltung für Item Spezifikationen. Um zu einem späteren Zeitpunkt zu einem definierten "guten" Zustand zurückzukehren.
+
+Beinhaltet Informationen wie:
+\begin{itemize}
+\item Anforderungen
+\item Kontext
+\item Spezifikationen
+\item Definitionen
+\item Änderungsverlauf
+\end{itemize}
+
+\paragraph{Struktur}
+Der Item Kontext erhält einen Vorgänger und mehrere Nachfolger.
+
+\img{1}{document/graphics/itemchange1.png}{Change Management Classes}{itemchange1}
+
+\newpage
+\img{1}{document/graphics/itemchange2.png}{Change Management Process}{itemchange2}
+
+\paragraph{Ablauf}
+\begin{itemize}
+\item Problem Report analysieren: Gültigkeit, Duplikate, ...
+\item Speichern in einer Datenbank
+\item Kategorisieren (Verbesserungswünsche, Kritischer Fehler, ...)
+\item Aufgrund von Marktpriorisierung (oder normale Priorisierung) ChangeRequests erstellen
+\item Genemigung, Planung, Aufwandsschätzung
+\item Arbeitsaufträge erstellen
+\item Ausführung
+\end{itemize}
+
+\section{Item Naming}
+
+Traditionelle Sicht laut ISO 10303-214:
+\img{1}{document/graphics/itemnaming1.png}{Traditioneles Item Naming}{itemnaming1}
+
+Zusätzlich kann jedes Teil mehrere Namen besitzen. Beispiel Personen:
+\begin{itemize}
+\item Namen
+\item Studentennummer
+\item Spitznamen
+\item ...
+\end{itemize}
+
+Namen können verschiedene Typen und Kontexte haben. Kontext sind zum Beispiel Familien, Firmen, ... Gutes Beispiel für Kontext sind zum Beispiel Domains ilias.fhv.at -> ilias ist nur in fhv und fhv nur in at definiert.
+
+\paragraph{Beispiel für Globale Identifikation: Identifikation von Bernd Wenzel}
+\begin{enumerate}
+\item Norm (UN - 0, ISO - 1, IEC - 2)
+\item Land (AT - 43, DE - 49, ...)
+\item Ort (Dornbirn - 6850, ...)
+\item Gebäude (FHV S-Trakt - 792, ...)
+\item Raum (Bernd Wenzel - 3007, ...)
+\end{enumerate}
 

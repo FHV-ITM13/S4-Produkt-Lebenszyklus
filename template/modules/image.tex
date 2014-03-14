@@ -57,3 +57,13 @@
 %       {}%% caption
 %       {}%% label
 %       {}%% source - will be shown in references
+
+\newcommand{\imgangle}[5]{
+    \begin{figure}[!ht]
+  		\begin{center}
+    		\includegraphics[angle=#2,width=#1\textwidth]{#3}
+    		\caption{#4}
+    		\label{\imglabelprefix:#5}
+    	\end{center}
+    \end{figure}
+}

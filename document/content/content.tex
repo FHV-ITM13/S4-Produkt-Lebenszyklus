@@ -435,3 +435,228 @@ Namen können verschiedene Typen und Kontexte haben. Kontext sind zum Beispiel F
 \item Raum (Bernd Wenzel - 3007, ...)
 \end{enumerate}
 
+\img{1}{document/graphics/item_naming_optimal.png}{Endergebnis von Item Naming}{itemnaming2}
+
+\newpage
+\section{Item Release Versionierung}
+
+\paragraph{Überlegungen}
+
+\begin{itemize}
+\item Verschiedene Versionen einer Sache beziehen sich auf verschiedene Designs 
+\item
+{Zwischen zwei verschiedenen Designs können folgende Beziehungen bestehen:
+\begin{itemize}
+\item Ein Design wurde von der anderen abgeleitet 
+\item Beide Entwürfe wurden von der gleichen Person erstellt 
+\item Beide Entwürfe wurden im Rahmen der gleichen Organisationen geschaffen 
+\item Ein Design wird in Zukunft Design-Arbeit die andere ersetzen 
+\item One-Design wird in der Produktion die andere ersetzen 
+\end{itemize}
+}
+\end{itemize}
+
+\img{1}{document/graphics/item_versioning_1.png}{Versionierung}{versioning1}
+
+\newpage
+\paragraph{Version}
+Veröffentlichtes Design, egal ob limitierte Veröffentlichung (limitierte erhalter) oder ganz öffentlich.
+
+\img{1}{document/graphics/item_versioning_2.png}{Versionierungs Statemachine für eien Item Kontext}{versioning2}
+
+\paragraph{Versionsnummern}
+Versionsnummern sind Identifier innerhalb des Item Kontext. Sie müssen Global einheitlich sein für Item-Identifier und Versionsnummer.
+
+\img{1}{document/graphics/item_versioning_3.png}{Versionsnummern sind Identifier}{versioning3}
+
+\newpage
+\paragraph{Beispiel: Magic Draw 17.0.1}
+
+\begin{itemize}
+\item Item Identifier: Magic Draw existiert global im Unternehmen
+\item Version 17 Identifier: 17 existiert in Magic Draw
+\item Version 0 Identifier: 0 exisiert in Magic Draw 17
+\item ...
+\end{itemize}
+
+\newpage
+\section{Übung Teilenummer}
+
+How can we represent the following information in an object model according to our naming und identification model.
+
+\paragraph{The following identifiers refer to the same part}
+\begin{itemize}
+\item Bosch: 4711-17
+\item BMW: 0814-12
+\item Mercedes: 9876-14
+\end{itemize}
+
+\img{1}{document/graphics/identifier_excercise.png}{Lösung zur Aufgabe}{identifier_excercise}
+
+\chapter{Produktentwicklung}
+
+\section{Items als Produkte oder Teile (Parts)}
+Die Begriffe "Produkt", "Part" und "Artikel" sind mehrdeutig verwendet 
+
+\paragraph{Bedeutung 1}
+Eine ItemSpezifikation eines Items werden die Erträge als eine Komponente des ganzen gesehen.
+
+\paragraph{Bedeutung 2}
+Verwendung als Instanz wie zum Beispiel ItemSpezifikation.
+
+\paragraph{Hinweis}
+Sehr oft beziehen sich "Produkt" und "Artikel" auf den gesamten, während "Teil" bezieht sich auf einen Artikel auf beliebiger Komponentenebene.
+
+\img{0.7}{document/graphics/release_process.png}{Beispiel eines Release Prozesses (Automobil Industrie)}{release_process}
+
+\paragraph{Überlegungen zu Abbildung \imgref{release_process}}
+\begin{itemize}
+\item{
+Im Frozen Zustand:
+\begin{itemize}
+\item Die Ergebnisse werden Kollegen zur Verfügung gestellt.
+\item So Stabil, dass der Prototyp kann erzeugt werden kann.
+\item So Stabil, dass eine Testphase gestartet werden kann.
+\end{itemize}
+}
+\item External Visibility: Kann das Design begutachtet werden? Ist das Design richtig um gesetzt?
+\item Safety relevant: Ist das Teil Sicherheitsrelevant und Sicherheitstechnisch OK? 
+\end{itemize}
+
+\newpage
+\section{Item als Zubehör (facilities), Ausrüstung (equipment) und Werkzeuge (tools)}
+Die Begriffe "Facility", "Ausrüstung" und "Tool" sind mehrdeutig verwendet.
+
+\paragraph{Bedeutung 1}
+Als Teil des Ganzen.
+
+\paragraph{Bedeutung 2}
+Als eigenständige Instanz.
+
+\paragraph{Hinweis}
+\begin{itemize}
+\item Sehr oft bezieht sich "Facility" auf der obersten Ebene in einer Produktionsressourcenstruktur.
+\item Sehr oft bezieht sich "Equipment" auf unabhängig voneinander arbeit Ebenen in einer Produktionsressource Struktur 
+\item Sehr oft bezieht sich "Tool" auf Kunden austauschbare Funktionseinheiten in einer Produktionsressourcenstruktur
+\end{itemize}
+
+\newpage
+\section{Varianten}
+
+\subsection{Automobil Industry}
+In der Anfangszeit waren Autos Luxusgüter für den Adel. Gekauft wurde damals nur der Motor und der Antriebsstrang, die Karroserie wurde von sogenannten Wagenbauer verkauft.
+
+\img{0.7}{document/graphics/automobil_industry.png}{Früherer Rolls Royce}{rolls_royce}
+
+Henry Ford führte die Massenproduktion ein. Das war das Ende der individuellen Wagen.
+
+\paragraph{Zitat:}
+"You may have it any color you like, provided the color is black"
+
+\img{0.7}{document/graphics/automobil_industry_1.png}{Ford Werk Verbindung Antriebsstrang und Karosserie}{ford_werk}
+
+\paragraph{Sonderwünsche}
+Die Kunden hatten aber weiterhin spezielle Wünsche. Dazu boten die Hersteller Spezialprodukte an. Dadurch hatten die Händler einige Probleme mit der Identität und der Qualität. Die Reaktion der Hersteller war dann, dass sie sogenannte PlusMinus Stücklisten anboten (ein bzw. ausbauen).
+
+\newpage
+\subsection{Varianten-Management}
+Eingeführt ca. 1965. Dadurch bestellt der Kunde keine Artikelnummer mehr sondern ein Model mit einer bestimmten Anzahl von Optionen.
+
+\begin{itemize}
+\item Typische Anzahl von Optionen: 150
+\item Nur geschlossene Kategorien
+\item Bei Luxuriösen Autos / Trucks: 1200 mit offenen Kategorien
+\end{itemize}
+
+Für jede Variante kann nicht ein Identifier erzeugt werden. Weil mindestens 150 Optionen bei jeweils mindestens 2 Möglichketen $2^{150} = 10^{45}$.
+
+Als Vergleich das Alter des Universums in Sekunden (ca): $2*10^{10}*4*10^{2}*10^5>10^{18}$
+
+\paragraph{Verbreitung}
+Flächendeckend in Deutschland und Schweden. Viele andere Europäische Hersteller limitieren das größtenteils auf Packete. Andere Länder ziehen kräftig nach und der Markt wächst stark.
+
+\newpage
+\subsection{Stückliste}
+Traditionelle Stücklisten können Variantenmanagement kaum abbilden. Aber auch eine Erweiterung wie in Abbildung \imgref{bom1}
+
+\img{0.7}{document/graphics/bom1.png}{Klassische Stückliste}{bom1}
+
+\paragraph{Probleme dieser Struktur:}
+\begin{itemize}
+\item Dokumentation der Entwicklungsprozess 
+\item Dokumentation von Anforderungen 
+\item Alternative Lösungen 
+\item Alternative Fertigungsprozesse 
+\item{
+Option gesteuert Alternativen 
+\begin{itemize}
+\item für Produkte 
+\item für Prozesse
+\end{itemize}
+}
+\end{itemize}
+
+\newpage
+Moderne Stücklisten sind Feingranular in Abbildung \imgref{bom2}. Sie ermöglichen das Anhängen von vielen Dokumenten für die Dokumentation, Alternative Lösungen, Prozesse und die Optionsgesteuerten Alternativen für Produkte bzw. Prozesse.
+
+\img{1}{document/graphics/bom2.png}{Moderne Stückliste}{bom2}
+
+\newpage
+Für das Varianten Management verwenden viele Automobil Hersteller heutzutage folgende Stückliste aus Abbildung \imgref{bom3}. Diese Stückliste bietet die Möglichkeit Spezifikations Expressions, um Einschränkungen abbilden zu können. Diese Expressions sind aufgebaut mit einem Syntaxtree um auch komplexere Einschränkungen abbilden zu können.
+
+\img{1}{document/graphics/bom3.png}{Automobil Industry Stückliste}{bom3}
+
+Eine Flexiblere und mächtigere Struktur in Abbildung \ref{bom4}. In dieser Struktur lassen sich Optionsklassen durch andere Optionen freischalten. Zum Beispiel wird die Produktklasse Vergasser nur dann angeboten wen ein alter Motor gewählt wurde oder bestimmte Optionen können nur an bestimmten Produktionsstätten gebaut werden.
+
+\img{1}{document/graphics/bom4.png}{More powerful and flexible structure}{bom4}
+
+\newpage
+\paragraph{Quelle von Optionen und Regeln}
+\begin{itemize}
+\item {
+Marketing
+\begin{itemize}
+\item Kunden: Farben, Radio, Schiebedach, ...
+\item Marktkontext: Kulturele Präferenzen in bezug auf Farbkombinationen, ...
+\end{itemize}
+}
+\item {
+Produktentwicklung
+\begin{itemize}
+\item Technische Optionen: Auf Teile-Ebene, ...
+\item Technische Regeln: Kein Radio ohne Antenne, ...
+\end{itemize}
+}
+\item {
+Produktherstellung
+\begin{itemize}
+\item Herstellungs Optionen: Auf Teile-Ebene, ...
+\item Herstellungs Regeln: Auswahl von Produktionsstandorten in Abhängigkeit von anderen Optionen, ...
+\end{itemize}
+}
+\end{itemize}
+
+Optionen stellen einen Kontext für jedes Element bereit. Dies ist in Abbildung \imgref{bom_options} zu entnehmen.
+
+\img{1}{document/graphics/bom_options.png}{Stückliste + Produkt optionen}{bom_options}
+
+\subsection{Produkt Optionen und Herstellungsprozesse bzw. Produkt kosten}
+Die Struktur in Abbildung \imgref{bom_options} stellt beide Möglichkeiten schon zur verfügung.
+
+\subsection{Zusammenfassung}
+Das Variantenmanagement ermöglicht gigantische Möglichkeiten, aber es hat gewisse Limitierungen:
+
+\begin{itemize}
+\item Variable Abmessungen (wie in der Möbelindustry oder Sattelposition in der Automobilindustrie)
+\item {
+Verbesserung: Variation Management (knowledgement Engeneering)
+\begin{itemize}
+\item Unterstützung für alle Datentypen in unserer Ausdrücke
+\item Generische Regelsprache ersetzt die begrenzte Option / Option Ausdruckssprache
+\item \textbf{Achtung:} Komplexität einer vollständigen Programmiersprache
+\end{itemize}
+}
+\end{itemize}
+
+
+

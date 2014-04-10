@@ -658,5 +658,76 @@ Verbesserung: Variation Management (knowledgement Engeneering)
 }
 \end{itemize}
 
+\chapter{Produktion}
+Die Produktion ist abhängig von den Fertigungswerken, der Ausrüstung und den Werkzeugen bzw. Hilfsmittel. Bevor die Produktion starten kann, müssen diese Dinge existieren/vorhanden sein. Weiters hängt auch die Effiktivität des Fertigungsprozesses von dem Grad der Instandhaltung der Fertigungswerke, der Ausrüstung und der Werkzeuge bzw. Hilfsmittel ab.
+
+\img{1}{document/graphics/manufacturing_process_overview.png}{Produktionsprozessüberblick}{manufacturing_process_overview}
+
+\section{Effiktivität}
+Effiktivität ist die Entscheidung einen Entwicklungsstand zu verwenden. Das "release level" hingegen ist die Entscheidung des Entwicklers, dass etwas fertig ist - wann es allerdings in den Release integriert wird, wird dabei nicht beeinflusst. 
+
+\img{1}{document/graphics/effectivity.png}{Effektivität}{effectivity}
+
+\section{Prozesse}
+\paragraph{Manufacturing Engineering}
+Auf Basis von Verfügbarkeit (Produktionseinrichtungen, Ausrüstungen, Geräte, ...) wird die Instandhaltung und Anpassung des Produktionsprozesse ausgeführt. Entscheidungen über die Effektivität von den Spezifikationen der Materialien werden auf Basis von Verfügbarkeit, Pläne des Marketings, Beobachtungen des Markts und der Probleme beim Produzieren getroffen. Aufgrund von Problemen beim Produktionsprozess werden Problemberichte erstellt.
+
+\paragraph{Sales Order Validation}
+Bestellungen werden vom Verkauf auf Grund von Produktspezifikationen/-definitionen und Informationen von PDM/PLM-Systemen gefiltert.
+
+\paragraph{Production Planning}
+Vorbereiten von detailierten und synchronisierten Abläufen für Produktionsstellen und Transporteinrichtungen auf Basis von Bestellungen sowie Informationen aus PDM/PLM-Systemen.
+
+\paragraph{Materials Procurement}
+Finale Entscheidung bezüglich:
+\begin{itemize}
+\item Fertigung oder Kauf 
+\item Bestellung der Materialien
+\item Verhandlungen mit externen Partnern über den Kauf von Materialien
+\end{itemize}
+auf Basis von Materialanfragen von der Produktionsplanung. Intern wird dann entschieden ob gekauft oder gefertigt wird.
+
+\paragraph{Manufacturing}
+Die Qualitätssicherung der erhalten und produzierten Materialien sowie deren Lieferung wird auf Grund der Produktspezifikationen/-definitionen getroffen. Zeitnahe Produktion von Materialien auf Basis des Produktionsplans sowie der Produktspezifikationen/-definitionen. 
+
+\paragraph{External Supply Chain}
+Platzhalter für alle Materiallieferaktivitäten die extern ablaufen.
+
+
+\chapter{Support}
+
+\section{Produktkonfiguration}
+Produkt-Support-Ingeneure brauchen Informationen über den konkreten aktuellen Status bzw. die konkrete aktuelle Konfigurationen über das Produkt da dieser Status / diese Konfiguration von der Prduktdefintion des Produzenten abweichen kann. Kann gesetzliche Konsequenzen nach sich ziehen. 
+
+\paragraph{Als Teil der Instandhaltung sollten Produkt-Support-Ingeneuere den aktuellen Status / die aktuelle Konfiguration dokumentieren (zumindestens auf dem Level der Teilenummer). Produktbesitzer sollten Seriennummern dokumentieren.}
+
+\paragraph{Zu Support zählt unter anderem die initiale Installation sowie Deinstallation und Reinstallation.}
+
+\img{1}{document/graphics/product_configuration.png}{Produktionkonfiguration}{product_configuration}
+
+\paragraph{Sammeln initialer Konfigurationen}
+Das Problem bzw. die Schwierigkeiten beim Sammeln initialer Konfigurationsdaten sind die entstehenden Kosten. Außerdem sollte dieses Sammeln sehr konsequent und von beginn an gemacht werden.
+
+\section{Produktinstallation}
+
+\begin{itemize}
+\item Vorbereiten der physikalischen Umgebung
+\item Installation des physikalischen Produkts (Abhängig von  Umgebung und Transport), entfernen der transportspezfischen Teile und dokumentieren
+\item Installation der Supportdatenbank
+\item Testen
+\item Training der Benutzer
+\end{itemize}
+
+\section{Produktinstandhaltung und -überholung}
+Identifikation der Komponenten die angepasst und ersetzt werden müssen und Dokumentation der Änderungen. Gefolgt von Testen und erneutem Training der Benutzer.
+
+\section{Produkteinstellung und - außerbetriebnahme}
+Identifikation der Komponenten die entfernt/ausgetauscht oder modifiziert/geschützt werden müssen. Auch hierbei müssen die Änderungen dokumentiert und die Tests erneut durchgeführt werden.
+
+\section{Produktdeinstallation und -reinstallation}
+Nach der Außerbetriebnahme folgt die Deinstallation, Entfernen und zerlegen von physikalischen Komponenten um diese transportierbar zu machen. Nach dem Transport wird die zur Reinstallation übergegangen und gegebenenfalls werden Anpassungen (z.B. auf Grund von neuen Entwicklungen) vorgenommen. Nach dem Abschluss des Wiederaufbaus sollte wieder getestet werden und natürlich sollte jeder Schritt auch dokumentiert werden.
+
+\section{Produktzerstörung}
+Hierbei werden physikalische Komponenten entfernt und zerlegt, allerdings kann hierbei die Integrität der Komponenten ignoriert/vernachlässigt werden. Auch dieser Schritt sollte dokumentiert werden um gegebenfalls belegen zu können dass alles korrekt abgelaufen ist.
 
 

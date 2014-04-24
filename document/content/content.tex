@@ -730,4 +730,82 @@ Nach der Außerbetriebnahme folgt die Deinstallation, Entfernen und zerlegen von
 \section{Produktzerstörung}
 Hierbei werden physikalische Komponenten entfernt und zerlegt, allerdings kann hierbei die Integrität der Komponenten ignoriert/vernachlässigt werden. Auch dieser Schritt sollte dokumentiert werden um gegebenfalls belegen zu können dass alles korrekt abgelaufen ist.
 
+\chapter{Produktbesitzer und Anwender}
+Der Anwender hängt an der Distributionslogistik. Den Anwender interessiert nicht das Design. Weiters hat er kein Interesse an der Produktnummer, sondern nur an seiner Seriennummer.
+
+Ein gutes Beispiel für die Trennung ist die Automobilindustrie, bei der z.B. mit Chiptuning durch reine Software die Leistung eines einzelnen Autos (Seriennummer) geändert werden kann.
+
+\section{Kundensicht}
+Die Firma, die als Kunde fungiert, stellt die Spezifikation für das jeweilige Produkt. Der Auftragnehmer kann dabei Hilfestellung geben, indem gewisse Informationen an den Auftraggeber weitergegeben werden. Aus diesem Austausch definiert der Auftragnehmer eine genauere Spezifikation, welche den Produktanbietern übergeben werden. Der Anbieter muss nicht zwingend auch der Hersteller sein, es kann sich dabei z.B. auch um einen Großhändler handeln.
+
+Die detaillierten Information sind für den Auftraggeber nicht, oder nur von marginalem, Interesse, hauptsächlich müssen die detaillierten Spezifikationen erfüllt werden, und das Produkt funktionieren.
+
+Mit dem Kunde sollte auch definiert werden welche Normen verwendet werden, da verschiedene Länder/Organisationen unterschiedliche Normen veröffentlichen. Für die verschiedenen Zwecke sollten eindeutige Normen bestimmt werden.
+
+Problematisch sind dabei auch die Lücke zwischen den Datenmodelliereren und der Terminologie die von den Experten in der jeweiligen Domänen verwendet wird.
+
+Folgende weitere Punkte sind für die Zusammenarbeit auch wichtig:
+\begin{itemize}
+\item Einigung auf einen gewissen Bereich der Arbeit (Use Cases)
+\item Definition eines standardisierten Glossar von Klassen für das Projekt
+\item Einigung auf standardisierte Attribute für die Begriffe im Glossar
+\item Einigung auf die Maßeinheiten für die standardisierten Attribute
+\item Überprüfung auf die Notwendigkeit von weiteren Attributen anhand von Use Cases
+\item Abstimmung von zusätzlichen Attributen auf Grund von Anforderungen der Stakeholder
+\item Einigung auf standardisierten/normierten Austauschformat für Informationen
+\item Bei Möglichkeit \textbf{international anerkannte Normen} verwenden
+\end{itemize}
+
+\section{Anwenderprozessmodell}
+Am Anfang muss man sich Gedanken über den Prozess machen, z.B. nach welchen Vorgehensweisen wird das Produkt hergestellt, welche Rohstoffe werden benötigt, was sind die Ergebnisse/Abfallprodukte des Prozesses.
+
+Bei diesem Modell gibt es eine klare Trennung zwischen Prozess und Herstellung.
+
+(Bild: Owner / Operator Process Model (2))
+
+Dieses Bild gibt nur eine grobe Übersicht, hinter jedem Punkt hängt ein weiteres Diagramm, welches ungefähr die selbe Komplexität besitzt.
+
+\section{Anwenderdatenmodell}
+Hierbei werden die Änderungen über die Zeit am Produkt fest gehalten. Als Beispiel könnte man beim Auto das Wechseln von Einzelteilen oder sogar das Nachtanken nennen.
+
+Dem Ganzen liegen zwei Prinzipien zu Grunde:
+
+\begin{itemize}
+\item Diese Änderungen können in einem flachgedrückten 3D-Raum über die Zeit dargestellt werden, welche umgangsprachlich auch Schlauchdiagramme genannt werden. Man kann sich das vorstellen, als ob die Objekte bei einer Bewegung durch den Raum kopiert werden.
+\item Bei temporären Teilen wird ein Bauteil oder eine Funktion über einen gewissen Zeitraum betrachtet. Bei diesen Diagrammen werden die Prozesse definiert, und die Verwendung der einzelnen Bauteilen auf einem zweidimensionalen Graph augetragen werden. Weiters könnte man auch den verwendeten Platz eines Produkts über eine gewisse Zeit abgebildet werden. (Bilder Owner /Operator Data Model(2))
+\end{itemize}
+
+(Bild Owner / Operator Data Model (1))
+
+Bei diesem Modell wird zuerst ein Thing definiert, was eine Abstraktion für alles ist. Es werden auch Klassen definiert, welche natürlich auch ein Thing darstellen.
+
+Es gibt auch Relationships, welche selber Things darstellen, und zwei Things in eine Beziehung stellen. Relationships haben zwei Subklassen: Specialization und Classification. Eine Specialization setzt zwei Klassen in eine Beziehung, un deine Classification ein Thing zu einer Klasse.
+
+PossibleIndivuals gibt verschiedene Möglichkeiten für Relationships dar. Eine Unterklasse davon stellt das PhysicalObject dar, welches wie folgt weiter unterteilt werden kann.
+
+\begin{itemize}
+\item MaterializePhysicalObject ist ein physisches Objekt, welches im Großen und Ganzen an seiner Materie definiert werden
+\item FunctionalPhysicalObject wird durch seine Funktion definiert
+\item SpacialLocation ist ein Punkt oder eine Menge von Punkten im Raum
+\item Stream ist ein Fluss von Energie, Materie oder sonst irgendetwas
+\end{itemize}
+
+Die restlichen Möglichkeiten teilen sich wie folgt weiter:
+
+\begin{itemize}
+\item Ein anderes PossibleIndivual ist ein ActualIndiviual, wenn es in der Realität wirklich existiert.
+\item Ein ArrangedIndivual kann seine Funktion während seiner Lebenszeit verändern
+\item Ein WholeLifeIndividual hat über die gesamte Lebenszeit die gleiche Funktion
+\item Eine Activity ist eine Tätigkeit, wie z.B. das Reden eines Dozenten, oder das Zusammenbauen eines Teiles
+\end{itemize}
+
+Things die Activities beeinflussen sind in folgender Liste beschrieben:
+
+\begin{itemize}
+\item CauseOfEvent stellt zwei Things in eine Relation, die ein Event verursacht
+\item InvolvementByReference stellt die Verwendung Dingen in eine Beziehung
+\item Recognition beschreibt die Verwendung ohne Veränderung
+\end{itemize}
+
+Mit diesem Modell kann die Veränderung in Objekten der Welt einschließlich der Welt selbst über die Zeit dokumentiert werden. Es ist das einzig bekannte Modell, welches solche Veränderungen über einen so breiten Rahmen dokumentieren kann.
 

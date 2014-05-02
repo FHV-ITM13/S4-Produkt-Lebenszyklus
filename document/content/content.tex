@@ -775,7 +775,7 @@ Dem Ganzen liegen zwei Prinzipien zu Grunde:
 \item Bei temporären Teilen wird ein Bauteil oder eine Funktion über einen gewissen Zeitraum betrachtet. Bei diesen Diagrammen werden die Prozesse definiert, und die Verwendung der einzelnen Bauteilen auf einem zweidimensionalen Graph augetragen werden. Weiters könnte man auch den verwendeten Platz eines Produkts über eine gewisse Zeit abgebildet werden. (Bilder Owner /Operator Data Model(2))
 \end{itemize}
 
-(Bild Owner / Operator Data Model (1))
+\todo{Bild Owner / Operator Data Model (1)}
 
 Bei diesem Modell wird zuerst ein Thing definiert, was eine Abstraktion für alles ist. Es werden auch Klassen definiert, welche natürlich auch ein Thing darstellen.
 
@@ -808,4 +808,96 @@ Things die Activities beeinflussen sind in folgender Liste beschrieben:
 \end{itemize}
 
 Mit diesem Modell kann die Veränderung in Objekten der Welt einschließlich der Welt selbst über die Zeit dokumentiert werden. Es ist das einzig bekannte Modell, welches solche Veränderungen über einen so breiten Rahmen dokumentieren kann.
+
+\chapter{STEP}
+
+\textbf{STEP ist ...}
+
+\begin{itemize}
+\item ein Internationale Standard für CAD / PDM Daten austausch
+\item eine Sammlung von standardisierten Informationsmodellen und Modelierungssprachen
+\item ein Datenaustauschformat
+\item eine standardisierte API für Produktdaten
+\item ein Produktmodel Framework
+\end{itemize}
+
+\section{Komponenten}
+
+\begin{itemize}
+\item {
+Informationsmodelle
+\begin{itemize}
+\item Generische Resourcen und Application Interpreted Constructs (AIC)
+\item Application Resources
+\item Application Protokolls
+\end{itemize}
+}
+\item Methodik und Werkzeuge
+\item Implementation Forms
+\item Conformance Testing Methodik
+\end{itemize}
+
+\section{Standardisierungs Zyklus}
+
+\begin{itemize}
+\item NWIP: New Work Item Proposal (Vorschlag)
+\item NWI: New Work Item (Ausarbeitungs vorbereitung)
+\item WD: Working Draft (Ausarbeitung in einer Gruppe)
+\item CD: Committee Draft for Voting (Begutachtung => bei negativem Ergebnis Stufe zurück) 
+\item DIS: Draft International Standard (Vorlage für Internationaler Standard)
+\item FDIS: Final Draft International Standard (Finalisierte Fassung)
+\item IS: International Standard
+\end{itemize}
+
+\section{Express - Modelierungssprache}
+
+Standardisierte Modelierungssprache um Daten zu beschreiben. Es ist in der lage auch komplizierte Daten zu beschreiben (z.b. Conditions).
+
+\newpage\section{Product Model Framework}
+
+\begin{itemize}
+\item Dünne Linien: Associationen
+\item Dicke Linien: Generalisierung
+\end{itemize}
+
+\img{1}{document/graphics/product_modell_framework.png}{Product Model Framework}{pmf}
+
+\section{Datenaustausch}
+
+Für den Datenaustausch wird für Step folgendes Model verwendet.
+
+\img{1}{document/graphics/data_exchange.png}{data exchange}{data_exchange}
+
+Es wird mittels eines Präprozessors (muss selbst implmentiert werden) und ein STEP File genieriert. Dieses File kann mittels eines Postprozesors in das Ziel System geschrieben werden.
+
+\img{1}{document/graphics/data_sharing.png}{data sharing}{data_sharing}
+
+Daten gemeinsam verwenden kann über eine STEP Datenbank umgesetzt werden. Dafür werden für die jeweiligen System eine Konverter geschrieben der Daten aus der Datenbank in das Properitäre Format umgewandelt wird.
+
+\newpage\section{Implementation Framework}
+
+In Abbildung \imgref{implementation_framework} wird das Implementation Framework von Step aufgeführt.
+
+\img{1}{document/graphics/implementation_framework.png}{Implementation Framework}{implementation_framework}
+
+\newpage\section{Warum Step?}
+
+\textbf{Step ist eine Technologie ...}
+
+\begin{itemize}
+\item für den austausch, Integration und Konsolidierung von Daten
+\item für parallele Entwicklung
+\item für Business Process Re-engineering 
+\item für Produktlebenszyklus-Unterstützung 
+\item für Unternehmen in ein agiler bewegen und wettbewerbsfähige Zukunft
+\end{itemize}
+
+\textbf{STEP} has got international support. \\
+\textbf{STEP} has won industrial momentum.  \\
+\textbf{STEP} is extensible.  \\
+\textbf{STEP} is implementable.  \\
+\textbf{STEP} works.
+ 
+A bridge into current/future technology is being prepared 
+
 
